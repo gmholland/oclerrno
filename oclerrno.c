@@ -92,7 +92,7 @@ const char *oclstrerror(cl_int errnum)
 
 void oclperror(cl_int errnum, const char *s)
 {
-	if (!s && s != '\0') {
+	if (s != NULL && *s != '\0') {
 		fprintf(stderr, "%s: %s\n", s, oclstrerror(errnum));
 	} else {
 		fprintf(stderr, "%s\n", oclstrerror(errnum));

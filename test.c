@@ -8,4 +8,7 @@ int main(void)
 	{
 		oclperror(i, NULL);
 	}
+	oclperror(-1, "message");
+	oclperror(-2, NULL);
+	oclperror(-3, "\0");
 }
