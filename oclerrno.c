@@ -79,18 +79,18 @@ static const char *oclerrlist[] = {
 	"max size restriction exceeded",
 };
 
-static const cl_int oclnerr = 73;
+static const int oclnerr = 73;
 
-const char *oclstrerror(cl_int errnum)
+const char *oclstrerror(int errnum)
 {
-	cl_int index = -errnum;
+	int index = -errnum;
 	if (index < 0 || index > oclnerr-1) {
 		return "unkown error";
 	}
 	return oclerrlist[index];
 }
 
-void oclperror(cl_int errnum, const char *s)
+void oclperror(int errnum, const char *s)
 {
 	if (s != NULL && *s != '\0') {
 		fprintf(stderr, "%s: %s\n", s, oclstrerror(errnum));
